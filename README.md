@@ -99,4 +99,4 @@ npm run analytics -- export --file=exports/backup-YYYY-MM-DD.json writes all sev
 
 npm test exercises every CLI verb, repeated migrations and seed, metric denominators, source isolation, repeated imports, incomplete histories, privacy minimisation, action evidence, private drafts, backups and escaped HTML. [Execution evidence](docs/validation.md). [Selection and sources](docs/research.md).
 
-MIT. Built and optionally operated through [Omni by Enterprise DNA](https://enterprisedna.co/omni/instead-of/matomo).
+MIT. Built and optionally operated through [Omni by Enterprise DNA](https://enterprisedna.co/omni/instead-of/matomo?utm_source=github&utm_medium=readme&utm_campaign=matomo).
