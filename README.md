@@ -4,6 +4,8 @@ Review website acquisition, landing pages and follow-up work in a database you o
 
 Built by Enterprise DNA. MIT licence. Works with Claude Code, Codex, OpenCode or Cursor.
 
+The [Matomo pricing page](https://matomo.org/pricing/) lists a US$1,900 monthly Cloud offer for ten million monthly hits, or US$22,800 over twelve monthly payments before tax. This is a list-price scenario, not a verified customer invoice. Matomo Community is already free and open source.
+
 | Do it yourself | We customise it | We run it for you |
 |---|---|---|
 | Free. Install the database and commands below. | Your measurement rules, history mapping, connections and screens. | Installed and operated through Omni by Enterprise DNA. Setup fee, then a retainer. |

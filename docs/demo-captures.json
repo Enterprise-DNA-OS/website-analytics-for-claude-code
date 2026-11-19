@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Acquisition",
+    "ask": "Which channels brought converted visits?",
+    "command": "node scripts/analytics.mjs acquisition --site=\"Fictional Studio\"",
+    "output": "site              channel   visits  converted_visits  conversion_pct\n  ----------------  --------  ------  ----------------  --------------\n  Fictional Studio  search    4       2                 50.00         \n  Fictional Studio  campaign  3       1                 33.33         \n  Fictional Studio  direct    2       0                 0.00          \n  Fictional Studio  website   1       0                 0.00"
+  },
+  {
+    "title": "Landing pages",
+    "ask": "Which landing pages had recorded conversions?",
+    "command": "node scripts/analytics.mjs landing --site=\"Fictional Studio\"",
+    "output": "site              landing                        visits  converted_visits  conversion_pct  single_action_visits\n  ----------------  -----------------------------  ------  ----------------  --------------  --------------------\n  Fictional Studio  https://demo.example/services  4       2                 50.00           1                   \n  Fictional Studio  https://demo.example/workshop  2       1                 50.00           1                   \n  Fictional Studio  https://demo.example/          1       0                 0.00            1                   \n  Fictional Studio  https://demo.example/guides    1       0                 0.00            1                   \n  Fictional Studio  https://demo.example/old       1       0                 0.00            1"
+  },
+  {
+    "title": "Needs attention",
+    "ask": "What website work and record checks are overdue?",
+    "command": "node scripts/analytics.mjs attention --site=\"Fictional Studio\"",
+    "output": "site              kind               detail                                                  \n  ----------------  -----------------  --------------------------------------------------------\n  Fictional Studio  access-review      Access review is overdue                                \n  Fictional Studio  incomplete-export  1 visits have fewer action details than reported actions\n  Fictional Studio  overdue-action     Check missing workshop action history                   \n  Fictional Studio  overdue-action     Review mobile services enquiries                        \n  Fictional Studio  privacy-review     Privacy review is overdue                               \n  Fictional Studio  retention-review   1 visits exceed the configured retention period         \n  Fictional Studio  stale-import       No import recorded in seven days"
+  }
+]
