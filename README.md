@@ -1,115 +1,100 @@
-<h1 align="center">Website Analytics for Claude Code</h1>
+# Website Analytics for Claude Code
 
-<p align="center">
-  <strong>The open-source website analytics system that is just a database and Claude Code.</strong>
-</p>
+Review website acquisition, landing pages and follow-up work in a database you own. A focused replacement for the reporting desk around saved Matomo visits.
 
-<p align="center">
-  Created by <a href="https://www.enterprisedna.co"><strong>Enterprise DNA</strong></a>. Free and open source. Works with Claude Code, Codex, OpenCode or Cursor.
-</p>
+Built by Enterprise DNA. MIT licence. Works with Claude Code, Codex, OpenCode or Cursor.
 
-<!-- three-doors -->
-<table align="center">
-  <tr>
-    <td align="center"><strong>Do it yourself</strong><br/>Clone it, run it, own it. Free, MIT.<br/><a href="#quick-start">Quick start</a></td>
-    <td align="center"><strong>We customise it</strong><br/>Your fields, your rules, your Matomo data brought across.<br/><a href="https://enterprisedna.co/omni/book/?utm_source=github&utm_medium=readme&utm_campaign=matomo">Book a call</a></td>
-    <td align="center"><strong>We run it for you</strong><br/>Installed, connected and operated inside Omni. Setup fee, then a retainer.<br/><a href="https://enterprisedna.co/omni/instead-of/matomo?utm_source=github&utm_medium=readme&utm_campaign=matomo">How it works</a></td>
-  </tr>
-</table>
-
-<p align="center">
-  <a href="#what-is-this">What is this</a> &bull;
-  <a href="#why-no-front-end">Why no front end</a> &bull;
-  <a href="#quick-start">Quick start</a> &bull;
-  <a href="#the-commands">Commands</a> &bull;
-  <a href="#instead-of-matomo">Instead of Matomo</a> &bull;
-  <a href="#want-it-installed-and-run-for-you">Installed for you</a> &bull;
-  <a href="#license">License</a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Node-20+-339933?style=flat-square" alt="Node 20+" />
-  <img src="https://img.shields.io/badge/PostgreSQL-any-336791?style=flat-square" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/PGlite-embedded-3ecf8e?style=flat-square" alt="PGlite" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="MIT License" />
-</p>
-
----
-
-## What is this
-
-Website Analytics for Claude Code does the job you pay Matomo for, as a Postgres database and a set of agent commands. There is no web front end. You open the folder in [Claude Code](https://claude.com/claude-code) (or Codex, OpenCode, Cursor: see `AGENTS.md`) and ask for what you want in plain language. It runs the right query, and it can answer questions the Matomo dashboard cannot.
-
-<!-- TODO(author): the annual bill. One sentence: what a 10 to 50 person business typically pays Matomo per year, all in, with a source. -->
-
-Want the same thing with a web front end, or built on a different stack? That is a customisation, and it is exactly what Enterprise DNA does: [book a call](https://enterprisedna.co/omni/book/?utm_source=github&utm_medium=readme&utm_campaign=matomo).
-
-<!-- TODO(author): two or three sentences on what this specific product covers and who it is for. -->
-
-## Why no front end
-
-- The front end was only ever there because the database was hard to talk to. That is no longer true.
-- Your data sits in plain Postgres tables you own. Any tool can read them. No export, no lock-in.
-- No seats, no tiers, no add-ons. Read [docs/why-no-front-end.md](docs/why-no-front-end.md) for the honest trade-offs too.
+| Do it yourself | We customise it | We run it for you |
+|---|---|---|
+| Free. Install the database and commands below. | Your measurement rules, history mapping, connections and screens. | Installed and operated through Omni by Enterprise DNA. Setup fee, then a retainer. |
+| [Quick start](#quick-start) | [Get your version built](https://enterprisedna.co/omni/book/?offer=replace-software&utm_medium=github&utm_campaign=matomo) | [Book a call](https://enterprisedna.co/omni/book/?offer=replace-software&utm_medium=github&utm_campaign=matomo) |
 
 ## Quick start
 
-Sixty seconds, no database install (an embedded Postgres runs inside Node):
+Node 20 or newer. No vendor account or hosted database needed for the fictional demo.
 
 ```bash
-git clone https://github.com/Enterprise-DNA-OS/website-analytics-for-claude-code.git
-cd website-analytics-for-claude-code
 npm install
 npm run demo
+npm run analytics -- acquisition --site="Fictional Studio"
+npm run view
+npm run docs
 ```
 
-Then open the folder in Claude Code and type a slash command. <!-- TODO(author): name the first command to try. -->
+PGlite stores the local database in .data/db. Set DATABASE_URL to use PostgreSQL, then run npm run migrate. The CLI assumes a trusted operator database connection. Shared use needs enforced identity, least privilege, backups and a retention process.
 
-### Use it with your own Postgres or Supabase
+The demo contains ten visits, fourteen saved pageviews and three converted visits. Search has four visits and two converted visits, a 50 percent conversion rate. One visit has incomplete action details and is excluded from landing-page totals. A deliberately old visit and overdue follow-up give the review commands something to find. Everything is fictional.
 
-Copy `.env.example` to `.env`, set `DATABASE_URL`, then `npm run migrate`. Same commands, shared data, no per-seat fee.
+## The working week
 
-## The commands
+1. /coverage checks the declared date spans and counts before interpreting changes.
+2. /acquisition compares channel conversion rates.
+3. /landing reviews page performance and single-action visits.
+4. /attention finds overdue improvements, stale imports and record-control findings.
+5. /weekly-review writes the Monday owner brief from metrics, actions and coverage.
 
-<!-- TODO(author): a table of the slash commands in .claude/commands and what each one does. -->
+30 slash commands live in .claude/commands. The single CLI has 26 verbs including help. Read npm run analytics -- help. Reads produce human-readable columns by default and support --json. Site names match without case. Unique ID prefixes work. Ambiguous references list candidates and exit 1.
 
-| Command | What it does |
-|---|---|
-| `/...` | ... |
+## Bring Matomo history across
 
-## Instead of Matomo
+Use a saved Live.getLastVisitsDetails JSON export. Register the source instance and site once, then import the file with one command. The import checks site identity, independent row count, duplicate visit IDs and UTC date bounds. A repeat skips identical evidence. Changed evidence under an existing ID is refused. Test with --dry-run first.
 
-<!-- TODO(author): how to bring data across from Matomo; link docs/replace-matomo.md -->
-
-## Architecture
-
-```
-website-analytics-for-claude-code/
-  CLAUDE.md                 how the operator wants this run (routing table + house rules)
-  AGENTS.md                 the same, for Codex / OpenCode / Cursor / Gemini CLI
-  .claude/commands/         the slash commands
-  scripts/                  the CLI the commands drive
-  scripts/lib/db.mjs        one adapter: DATABASE_URL (pg) or embedded PGlite
-  supabase/migrations/      plain SQL schema
-  supabase/seed.sql         demo data
-  docs/                     the thesis and the migration guide
+```bash
+npm run analytics -- import matomo --site="Your site" --file=imports/visits.json --expected-count=100 --from=2026-11-01 --to=2026-11-18 --source-ref="Actual export job and filters" --actor="Actual operator" --dry-run
 ```
 
-## Built for coding agents
+The count and dates above are placeholders. Use the actual export scope. Read [the switching guide](docs/replace-matomo.md) before importing.
 
-The database, CLI and command recipes work with Claude Code, Codex, OpenCode or Cursor. Ask your coding agent for a new command and have it implement and test the change against the same records.
+This base reads saved visits. It does not collect browser events, administer consent, replay sessions or replace a live tracking service. Keep collection running until a replacement has been built and reconciled. Enterprise DNA scopes that connection as part of your version. Matomo Community is already free and open source; the decision is whether you need its full platform or a smaller owned reporting workflow.
 
-## Contributing
+## Ten questions to ask
 
-Issues and pull requests are welcome. Keep the shape: plain SQL, a small CLI, a slash command per recurring job, no front end.
+These are shipped queries. They are not claims that Matomo cannot answer the same questions. Your locally assigned work and review evidence are the additional context.
 
-## Want it installed and run for you?
+1. Which acquisition channels brought converted visits? Use acquisition.
+2. Which landing pages have visits but no recorded conversions? Use landing.
+3. How do mobile and desktop conversion rates compare? Use devices.
+4. Which pages have the most observed views? Use pages.
+5. How did visits change across the imported dates? Use trends.
+6. Which country groups have converted visits? Use countries.
+7. What page sequence preceded a recorded conversion? Use journeys.
+8. Which website improvements are overdue and who owns them? Use actions.
+9. Which imports have declared counts and which visits have incomplete details? Use coverage and compliance.
+10. Which site records need a privacy, access or retention review? Use compliance.
 
-Enterprise DNA installs Website Analytics for Claude Code for your business, migrates your Matomo data, connects it to the rest of your tools, and runs it for you as part of **Omni**, our managed Command Center. One setup fee, then a monthly retainer.
+## Metric definitions
 
-- Book a call: [enterprisedna.co/omni/book](https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=matomo)
-- Read more: [enterprisedna.co/omni/instead-of/matomo](https://enterprisedna.co/omni/instead-of/matomo?utm_source=github&utm_medium=readme&utm_campaign=matomo)
+A visit is one unique source-instance/site/visit ID. A converted visit is the vendor’s visitConverted flag, not a sale count. Conversion rate is converted visits divided by observed visits. Pageviews include only actionDetails entries whose type is action. Observed page time sums their timeSpent values and does not invent a duration for an unmeasured final page. Landing pages use the first saved page action only when the recorded detail count covers reported actions. Single-action visits are labelled as such, not presented as an exact vendor bounce-rate replica.
 
-## License
+Dates group the firstActionTimestamp in UTC. Matomo site-local date reports can differ. No cross-session visitor identity, unique-visitor counts, attribution model, revenue or statistical significance is inferred. Missing dates are unknown. Imported scope is a declaration, not proof of a complete extract. Reconcile filtered or paginated exports before relying on comparisons.
 
-MIT. Copyright (c) 2026 Enterprise DNA.
+## Your first hour: ten things to ask for
+
+1. Set our business name and colours in brand.json.
+2. Register our actual Matomo instance and site ID.
+3. Record the owner and purpose of this analysis.
+4. Agree retention and privacy review settings.
+5. Export a closed period with an independently checked visit count.
+6. Run the import check without writing.
+7. Compare the loaded counts with the source.
+8. Assign an owner to one page improvement.
+9. Produce our private website brief.
+10. Add the one report our Monday meeting needs.
+
+/customise adds a field or rule through a tested migration. /new-view adds a read-only report. [Why no front end](docs/why-no-front-end.md).
+
+## Paperwork, controls and backups
+
+npm run docs writes branded website performance briefs and analytics record control reviews to docs-out/. npm run view writes views/week.html. Both use brand.json and escape record text.
+
+/compliance checks review dates, retention settings and truncated action history. Read [the source rules](docs/compliance.md). It is an operational check, not a certificate. Import drops IP addresses, visitor and user IDs, coordinates, page titles, query strings and fragments. URL paths, referrer labels, source visit IDs and your notes can still identify people. Review those fields and protect outputs.
+
+Imports, visits, pageviews, notes and activity events are append-only through this base. Corrections and retention deletions require a reviewed maintenance process. The database owner can bypass application controls. Typed operator names provide attribution, not authentication. Do not commit customer exports or reports.
+
+npm run analytics -- export --file=exports/backup-YYYY-MM-DD.json writes all seven record types to a new private JSON file and refuses overwrites. Automated restore is not included. Keep native database backups and original exports under the agreed retention policy.
+
+## Validation and selection
+
+npm test exercises every CLI verb, repeated migrations and seed, metric denominators, source isolation, repeated imports, incomplete histories, privacy minimisation, action evidence, private drafts, backups and escaped HTML. [Execution evidence](docs/validation.md). [Selection and sources](docs/research.md).
+
+MIT. Built and optionally operated through [Omni by Enterprise DNA](https://enterprisedna.co/omni/instead-of/matomo).

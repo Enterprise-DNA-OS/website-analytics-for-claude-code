@@ -1,0 +1,42 @@
+[
+  [
+    "Which acquisition channels brought converted visits?",
+    "acquisition"
+  ],
+  [
+    "Which landing pages have visits but no recorded conversions?",
+    "landing"
+  ],
+  [
+    "How do mobile and desktop conversion rates compare?",
+    "devices"
+  ],
+  [
+    "Which pages have the most observed views?",
+    "pages"
+  ],
+  [
+    "How did visits change across the imported dates?",
+    "trends"
+  ],
+  [
+    "Which country groups have converted visits?",
+    "countries"
+  ],
+  [
+    "What page sequence preceded a recorded conversion?",
+    "journeys"
+  ],
+  [
+    "Which website improvements are overdue and who owns them?",
+    "actions"
+  ],
+  [
+    "Which imports have declared counts and which visits have incomplete details?",
+    "coverage and compliance"
+  ],
+  [
+    "Which site records need a privacy, access or retention review?",
+    "compliance"
+  ]
+]

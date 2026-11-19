@@ -1,0 +1,212 @@
+[
+  {
+    "idSite": 1,
+    "idVisit": 101,
+    "firstActionTimestamp": 1794304800,
+    "visitConverted": 1,
+    "actions": 2,
+    "visitDuration": 90,
+    "referrerType": "search",
+    "referrerName": "Search engine",
+    "deviceType": "Desktop",
+    "countryCode": "nz",
+    "actionDetails": [
+      {
+        "type": "action",
+        "url": "https://demo.example/services?campaign=fictional",
+        "timeSpent": 90
+      },
+      {
+        "type": "action",
+        "url": "https://demo.example/book",
+        "timeSpent": 0
+      }
+    ]
+  },
+  {
+    "idSite": 1,
+    "idVisit": 102,
+    "firstActionTimestamp": 1794304800,
+    "visitConverted": 0,
+    "actions": 1,
+    "visitDuration": 0,
+    "referrerType": "direct",
+    "referrerName": "",
+    "deviceType": "Desktop",
+    "countryCode": "au",
+    "actionDetails": [
+      {
+        "type": "action",
+        "url": "https://demo.example/?campaign=fictional",
+        "timeSpent": 0
+      }
+    ]
+  },
+  {
+    "idSite": 1,
+    "idVisit": 103,
+    "firstActionTimestamp": 1794391200,
+    "visitConverted": 0,
+    "actions": 1,
+    "visitDuration": 0,
+    "referrerType": "search",
+    "referrerName": "Search engine",
+    "deviceType": "Smartphone",
+    "countryCode": "nz",
+    "actionDetails": [
+      {
+        "type": "action",
+        "url": "https://demo.example/services?campaign=fictional",
+        "timeSpent": 0
+      }
+    ]
+  },
+  {
+    "idSite": 1,
+    "idVisit": 104,
+    "firstActionTimestamp": 1794477600,
+    "visitConverted": 1,
+    "actions": 2,
+    "visitDuration": 120,
+    "referrerType": "campaign",
+    "referrerName": "Spring workshop",
+    "deviceType": "Desktop",
+    "countryCode": "au",
+    "actionDetails": [
+      {
+        "type": "action",
+        "url": "https://demo.example/workshop?campaign=fictional",
+        "timeSpent": 120
+      },
+      {
+        "type": "action",
+        "url": "https://demo.example/book",
+        "timeSpent": 0
+      }
+    ]
+  },
+  {
+    "idSite": 1,
+    "idVisit": 105,
+    "firstActionTimestamp": 1794650400,
+    "visitConverted": 0,
+    "actions": 1,
+    "visitDuration": 0,
+    "referrerType": "campaign",
+    "referrerName": "Spring workshop",
+    "deviceType": "Smartphone",
+    "countryCode": "nz",
+    "actionDetails": [
+      {
+        "type": "action",
+        "url": "https://demo.example/workshop?campaign=fictional",
+        "timeSpent": 0
+      }
+    ]
+  },
+  {
+    "idSite": 1,
+    "idVisit": 106,
+    "firstActionTimestamp": 1794736800,
+    "visitConverted": 1,
+    "actions": 2,
+    "visitDuration": 60,
+    "referrerType": "search",
+    "referrerName": "Search engine",
+    "deviceType": "Desktop",
+    "countryCode": "nz",
+    "actionDetails": [
+      {
+        "type": "action",
+        "url": "https://demo.example/services?campaign=fictional",
+        "timeSpent": 60
+      },
+      {
+        "type": "action",
+        "url": "https://demo.example/book",
+        "timeSpent": 0
+      }
+    ]
+  },
+  {
+    "idSite": 1,
+    "idVisit": 107,
+    "firstActionTimestamp": 1794823200,
+    "visitConverted": 0,
+    "actions": 1,
+    "visitDuration": 0,
+    "referrerType": "website",
+    "referrerName": "Industry directory",
+    "deviceType": "Tablet",
+    "countryCode": "us",
+    "actionDetails": [
+      {
+        "type": "action",
+        "url": "https://demo.example/guides?campaign=fictional",
+        "timeSpent": 0
+      }
+    ]
+  },
+  {
+    "idSite": 1,
+    "idVisit": 108,
+    "firstActionTimestamp": 1794823200,
+    "visitConverted": 0,
+    "actions": 2,
+    "visitDuration": 30,
+    "referrerType": "search",
+    "referrerName": "Search engine",
+    "deviceType": "Smartphone",
+    "countryCode": "au",
+    "actionDetails": [
+      {
+        "type": "action",
+        "url": "https://demo.example/services?campaign=fictional",
+        "timeSpent": 30
+      },
+      {
+        "type": "action",
+        "url": "https://demo.example/fees",
+        "timeSpent": 0
+      }
+    ]
+  },
+  {
+    "idSite": 1,
+    "idVisit": 109,
+    "firstActionTimestamp": 1735725600,
+    "visitConverted": 0,
+    "actions": 1,
+    "visitDuration": 0,
+    "referrerType": "direct",
+    "referrerName": "",
+    "deviceType": "Desktop",
+    "countryCode": "nz",
+    "actionDetails": [
+      {
+        "type": "action",
+        "url": "https://demo.example/old?campaign=fictional",
+        "timeSpent": 0
+      }
+    ]
+  },
+  {
+    "idSite": 1,
+    "idVisit": 110,
+    "firstActionTimestamp": 1794823200,
+    "visitConverted": 0,
+    "actions": 4,
+    "visitDuration": 0,
+    "referrerType": "campaign",
+    "referrerName": "Spring workshop",
+    "deviceType": "Smartphone",
+    "countryCode": "au",
+    "actionDetails": [
+      {
+        "type": "action",
+        "url": "https://demo.example/workshop?campaign=fictional",
+        "timeSpent": 0
+      }
+    ]
+  }
+]
